@@ -1,0 +1,118 @@
+# Architecture
+
+# MVC
+# ModelClasses
+	PaintModel
+# ViewClasses
+	PaintPanel , View
+# ControllerClasses
+	View, PaintPanel
+
+# Observer/Observable
+# Observer Class
+    PaintPanel
+# Observable Class
+    PaintModel
+	
+# Strategy
+# Strategy Interface
+    DrawingStrategy
+# Concrete Strategy
+    CircleDrawingStrategy
+    OvalDrawingStrategy
+    PolylineDrawingStrategy
+    RectangleDrawingStrategy
+    SquareDrawingStrategy
+    SquiggleDrawingStrategy
+    TriangleDrawingStrategy
+#Context
+    PaintPanel
+#Client
+    ShapeChooserPanel
+
+--------------------------------------------------------------------------------
+	(For each design pattern, pull from  and modify designPatternTemplate.txt)
+
+--------------------------------------------------------------------------------
+# High Level Architecture Discussion
+
+	(Put all of the above together in a collection of stories which tell the
+	developer how to modify, extend, or understand your code)
+
+	(For each story, pull from and modify the highLevelTemplate.txt)
+	The paint application is built using a combination of the Model-View-Controller
+	(MVC) pattern, the Observer pattern, and the Strategy pattern. These design
+	patterns work together to separate concerns, making it easier to modify and
+	extend the application.
+
+	1. Model-View-Controller (MVC) Architecture
+    The application is structured using the MVC pattern to separate the data
+    (Model), user interface (View), and control logic (Controller).
+
+    Model (PaintModel): The PaintModel class stores a collection of shapes
+    (drawables) and temporary shapes (tempDrawables).This class is responsible
+    for managing and notifying any changes to observers.
+
+    View (PaintPanel, View): The PaintPanel and View classes together represent
+    the application's View. PaintPanel displays shapes on the canvas, while View
+     handles the overall layout and user interface, including menu and toolbar setup.
+
+    Controller (View, PaintPanel): The View and PaintPanel classes also act as
+    controllers, handling user inputs like menu selections, mouse events, and
+    shape selection. PaintPanel updates its drawing mode and delegates the
+    drawing task to the appropriate DrawingStrategy.
+
+    2. Observer Pattern
+    The Observer pattern is implemented to keep the PaintPanel in sync with
+    any changes in the PaintModel.
+
+    Observable (PaintModel): The PaintModel class extends Observable. Whenever
+    a change occurs in the model, such as adding or removing shapes,
+    it notifies all observers.
+
+    Observer (PaintPanel): The PaintPanel class implements Observer and
+    responds to updates from the PaintModel. When notified, it redraws the
+    shapes, ensuring the view reflects the latest state of the model.
+
+    This pattern decouples the model from the view, making it easier to update
+    one without affecting the other.
+
+    3. Strategy Pattern
+    The Strategy pattern allows the application to support various drawing modes,
+     such as drawing circles, rectangles, and other shapes. This pattern enables
+     flexibility and extension by encapsulating each drawing behavior as a
+     separate strategy.
+
+    Strategy Interface (DrawingStrategy): The DrawingStrategy interface defines
+    the methods needed to handle mouse events and create shapes.
+
+    Concrete Strategies: Each shape has its own DrawingStrategy implementation,
+    such as CircleDrawingStrategy, RectangleDrawingStrategy,
+    PolylineDrawingStrategy, etc. These classes define how each shape is created
+    in response to mouse events.
+
+    Context (PaintPanel): The PaintPanel class uses a DrawingStrategy instance
+    to handle the drawing logic. It sets the appropriate strategy based on the
+    user's selected shape.
+
+    Client (ShapeChooserPanel): The ShapeChooserPanel is the client that selects
+     and assigns a DrawingStrategy to the PaintPanel. When the user selects a
+     shape from the toolbar, ShapeChooserPanel updates PaintPanel with the
+     appropriate drawing strategy.
+
+    This pattern makes it easy to add new shapes. By creating a new
+    DrawingStrategy for the desired shape and adding a button in
+    ShapeChooserPanel, the application can support new drawing modes without
+    modifying existing code.
+
+    Example: When a person chooses a shape and draws the shape onto the canvas
+
+    When a user selects a shape in the ShapeChooserPanel, the program sets
+    the corresponding DrawingStrategy (For example, CircleDrawingStrategy) in the
+    PaintPanel. This strategy determines how the shape is drawn based on mouse
+    events. As the user interacts with the canvas (pressing, dragging, and
+    releasing the mouse), PaintPanel forwards these events to the current
+    DrawingStrategy, which calculates and updates the shape's size and position
+    in real-time. Temporary shapes are drawn for feedback during mouse movement,
+    and the final shape is added to the PaintModel upon release, updating the
+    canvas display through the Observer pattern.

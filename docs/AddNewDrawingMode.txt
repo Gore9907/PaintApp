@@ -1,0 +1,67 @@
+--------------------------------------------------------------------------------
+New Drawing Mode:
+Description:
+	(description of what the feature is and how it is tied to the architecture
+	application and the code...)
+
+	A drawing mode enables a user to naturally draw a shape on the screen. The
+	drawing mode consists of an image icon appearing in the left button panel.
+	When the user clicks the image icon, the drawing mode is enabled. This means
+	that a strategy for handling user input for this drawing mode is installed.
+
+	At this point, all mouse events will call the methods in the concrete drawing
+	strategy that correspond to the mouse event used. A new shape object will then
+	be created according to the shape's concrete drawing strategy. Finally, the
+	canvas will the show (draw) the shape according to the draw method in the
+	class for the shape.
+
+Implementation:
+	(inventory of ideas, required files, how they are tied to the architecture,
+		naming conventions (example: images/ButtonIconSquare.jpg, MHStrategySquare, ShapeSquare...)
+
+	To add a new drawing mode named X provide an image of X (X.jpg). Create
+	XDrawingStrategy that implements DrawingStrategy interface that has methods
+	that specify how an X object is created from the mouse events.
+	X class that extends Shape and implements Drawable that has a concrete
+	method of draw that specify how X is displayed in the canvas.
+
+	(list of aspects of code to touch to implement the new drawing mode)
+
+	image icon: Create a jpg image and place it on display in the Button Panel,
+	placed in images/ButtonIconX.jpg
+
+	MouseHandlerStrategy:
+		Creates an X object corresponding to the mouse events.
+
+	X class:
+		 Using the draw method in the class to specify how the shape is drawn on
+		 the canvas.
+
+Example:
+	To implement a new "Square" drawing mode, we'll add the following components:
+    	Image Icon: File: Square.png
+
+    	Description: Create an icon representing the square shape.
+
+    	Placement: The image will be placed in the left button panel to allow users
+    	to select the Square drawing mode. When clicked, this icon activates the
+    	drawing mode for squares.
+
+    	MouseHandlerStrategy:
+    	Class: SquareDrawingStrategy
+    	Purpose: This strategy class handles the user input specific to drawing a square.
+    	Implementation: The SquareDrawingStrategy class listens to mouse events
+    	(onMousePressed, onMouseDragged, onMouseReleased) and creates a square
+    	shape based on user interactions. When the user selects the square
+    	drawing mode (via an icon), this strategy is activated, allowing the
+    	user to click and drag on the canvas to draw a square. The class relies
+    	on the PaintModel for managing temporary and finalized shapes
+
+    	Square class:
+    	Class: Square
+    	Purpose: Defines the shape of square and has a draw() method that defines
+    	the display of the shape on the canvas
+    	Implementation: Using the square's color, defined display
+    	mode(Stroke or fill) and length of the square to display the shape on
+    	the canvas.
+--------------------------------------------------------------------------------
