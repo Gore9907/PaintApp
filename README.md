@@ -1,6 +1,6 @@
 🎨 JavaFX Drawing App
 
-A simple JavaFX-based drawing application using the Strategy design pattern. Built for learning and exploration, this app allows users to draw shapes like circles, rectangles, squiggles, and more using an intuitive icon-based interface.
+A simple JavaFX-based drawing application using design patterns. Built for learning and exploration, this app allows users to draw shapes like circles, rectangles, squiggles, and more using an intuitive icon-based interface.
 
 ---
 
