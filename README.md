@@ -54,9 +54,9 @@ If you see: "JavaFX runtime components are missing"
 
 ---
 
-👨‍💻 Author
+👨‍💻 Authors
 
 Gore Ho 
-Computer Science + Economics @ University of Toronto
+Computer Science + Economics @ University of Toronto Mississauga
 
 ---
