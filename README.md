@@ -24,8 +24,8 @@ Follow these steps to clone, build, and run the application.
 
 💻 Clone the Repository
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/Gore9907/PaintApp.git
+cd PaintApp
 
 ▶️ Run with Maven Wrapper (recommended)
 
