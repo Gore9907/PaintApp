@@ -12,25 +12,25 @@ A simple JavaFX-based drawing application using design patterns. Built for learn
 - Uses the Strategy design pattern for tool switching
 - Cleanly structured JavaFX + Maven project
 
+🧰 Tech Stack
+
+- Java – Core programming language for application logic and structure
+
+- JavaFX – UI framework for rendering shapes, handling user interactions, and building the toolbar interface
+
+- Maven – Project management and build tool for dependency handling and running the app
+
+- Design Patterns – Applied for clean, maintainable, and extensible architecture:
+
+   Strategy Pattern – For switching between drawing tools dynamically
+
+   Model–View–Controller (MVC) – To separate data, user interface, and control logic
+
+   Observer/Observable Pattern – For updating views when the model changes
+
 🚀 Getting Started
 
 Follow these steps to clone, build, and run the application.
-
-🧰 Tech Stack
-
-Java – Core programming language for application logic and structure
-
-JavaFX – UI framework for rendering shapes, handling user interactions, and building the toolbar interface
-
-Maven – Project management and build tool for dependency handling and running the app
-
-Design Patterns – Applied for clean, maintainable, and extensible architecture:
-
-Strategy Pattern – For switching between drawing tools dynamically
-
-Model–View–Controller (MVC) – To separate data, user interface, and control logic
-
-Observer/Observable Pattern – For updating views when the model changes
 
 🧾 Requirements
 
