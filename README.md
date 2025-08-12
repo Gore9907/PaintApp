@@ -74,5 +74,6 @@ If you see: "JavaFX runtime components are missing"
 
 Gore Ho 
 Computer Science + Economics @ University of Toronto Mississauga
+Steric Tsui @ University of Toronto Mississauga
 
 ---
